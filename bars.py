@@ -36,6 +36,7 @@ def get_closest_bar(data, longitude, latitude):
 
 
 if __name__ == '__main__':
+    # Put a path to file to file variable
     file = 'data-2897-2016-11-23.json'
     print("Самый большой - ", get_biggest_bar(load_data(file)))
     print("Самый маленький - ", get_smallest_bar(load_data(file)))
