@@ -2,20 +2,11 @@ import json
 from geopy.distance import vincenty
 
 
-file = 'data-2897-2016-11-23.json'
-
-
 def load_data(filepath):
     # Loads JSON file from filepath variable and return it in str
     with open(filepath) as json_data:
         data = json.load(json_data)
         return data
-
-
-def pretty_print_json(data):
-    # Gets a str variable with data and return it pretty view
-    form_json = json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False)
-    return form_json
 
 
 def get_biggest_bar(data):
@@ -34,26 +25,19 @@ def get_smallest_bar(data):
     return min(d, key=d.get)
 
 
-def get_closest_bar(data, longitude=33, latitude=22):
+def get_closest_bar(data, longitude, latitude):
+    # Gets a str variable with data, longitude and latitude from input and return the closest value key
     d = {}
     your_place = (longitude, latitude)
     for bars in data:
-        d[bars["Name"]] = vincenty(bars["geoData"]["coordinates"], your_place)
-        li = []
-    # for bars in d.keys():
-    #     li.append(bars)
-    #     li = li + d[bars]
-
-    for bars in d.values():
-        print(vincenty(bars, your_place))
-        print(bars)
-    return d
+        li = tuple(bars["geoData"]["coordinates"])
+        d[bars["Name"]] = vincenty(li, your_place).kilometers
+    return min(d, key=d.get)
 
 
 if __name__ == '__main__':
-    # print(load_data(file))
-    print(pretty_print_json(load_data(file)))
-    # print(get_closest_bar(load_data(file)))
-    # print(get_biggest_bar(load_data(file)))
-    # print(get_smallest_bar(load_data(file)))
-    print(get_closest_bar(load_data(file)))
+    file = 'data-2897-2016-11-23.json'
+    print("Самый большой - ", get_biggest_bar(load_data(file)))
+    print("Самый маленький - ", get_smallest_bar(load_data(file)))
+    longitude, latitude = float(input("longitude is ")), float(input("latitude is "))
+    print("Самый близкий - ", get_closest_bar(load_data(file), longitude, latitude))
