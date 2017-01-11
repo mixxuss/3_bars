@@ -36,13 +36,14 @@ def get_smallest_bar(data):
 
 def get_closest_bar(data, longitude=33, latitude=22):
     d = {}
-    for bars in data:
-        d[bars["Name"]] = bars["geoData"]["coordinates"]
-    li = []
-    for bars in d.keys():
-        li.append(bars)
-        li = li + d[bars]
     your_place = (longitude, latitude)
+    for bars in data:
+        d[bars["Name"]] = vincenty(bars["geoData"]["coordinates"], your_place)
+        li = []
+    # for bars in d.keys():
+    #     li.append(bars)
+    #     li = li + d[bars]
+
     for bars in d.values():
         print(vincenty(bars, your_place))
         print(bars)
