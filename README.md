@@ -11,7 +11,6 @@
 ```#!bash
 
 $ python bars.py # possibly requires call of python3 executive instead of just python
-# python.exe C:/Users/123/PycharmProjects/3_bars/bars.py
 Самый большой -  Спорт бар «Красная машина»
 Самый маленький -  БАР. СОКИ
 longitude is 37.587456
