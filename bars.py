@@ -1,4 +1,4 @@
-import json, argparse
+import json, argparse, os
 from geopy.distance import vincenty
 
 
@@ -7,8 +7,11 @@ def create_parser():
     parser.add_argument('filepath', nargs='?')
     return parser
 
+
 def load_data_json(filepath):
-    with open(filepath) as json_data:
+    if not os.path.exists(filepath):
+        return None
+    with open(filepath, 'r') as json_data:
         json_string = json.load(json_data)
     return json_string
 
@@ -38,7 +41,7 @@ def get_closest_bar(dict_range):
 if __name__ == '__main__':
     parsed_args = create_parser()
     filepath = parsed_args.parse_args()
-    loaded_json = load_data_json(filepath)
+    loaded_json = load_data_json(filepath.filepath)
     dict_seatscount = make_dict_seatscount(loaded_json)
     print("Самый большой - ", get_biggest_bar(dict_seatscount))
     print("Самый маленький - ", get_smallest_bar(dict_seatscount))
