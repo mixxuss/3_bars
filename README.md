@@ -6,20 +6,21 @@
 
 Скрипт требует для своей работы установленного интерпретатора Python версии 3.5
 
-Запуск на Linux:
+Запуск на Windows:
 
 ```#!bash
 
-$ python bars.py # possibly requires call of python3 executive instead of just python
+$ C:\Users\admin\python.exe C:/Users/admin/PycharmProjects/3_bars/bars.py C:\Users\admin\PycharmProjects\3_bars\data-2897-2016-11-23.json
 Самый большой -  Спорт бар «Красная машина»
 Самый маленький -  БАР. СОКИ
-longitude is 37.587456
-latitude is 35.5485654
-Самый близкий -  Бар «Ракета»
+longitude is 55
+latitude is 55
+Самый близкий -  Таверна
+
 
 ```
 
-Запуск на Windows происходит аналогично.
+Запуск на Linux происходит аналогично.
 
 # Цели проекта
 
