@@ -10,14 +10,10 @@
 
 ```#!bash
 
-$ C:\Users\admin\python.exe C:/Users/admin/PycharmProjects/3_bars/bars.py C:\Users\admin\PycharmProjects\3_bars\data-2897-2016-11-23.json
+$ C:\Users\admin\python.exe C:/Users/admin/PycharmProjects/3_bars/bars.py C:\Users\admin\PycharmProjects\3_bars\data.json 39.00001212 55.4564655
 Самый большой -  Спорт бар «Красная машина»
 Самый маленький -  БАР. СОКИ
-longitude is 55
-latitude is 55
 Самый близкий -  Таверна
-
-
 ```
 
 Запуск на Linux происходит аналогично.
